@@ -7,7 +7,7 @@ const router = Router();
 
 // router.use('/');
 
-router.use('/warehouse' ,Warehouse)
+router.use('/envios' ,Warehouse)
 // router.use('/types',DietRoutes);
 // router.use('/recipe',RecipeRoutes);
 

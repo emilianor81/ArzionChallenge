@@ -8,52 +8,67 @@ conn.sync({ force: true }).then(() => {
     const WH01 = Deposito.create({
       name: 'Buenos Aires',
       id: 1,
-      limite:200
+      limite:200,
+      direccion: 'C1063 CABA'
     });
     const WH02 = Deposito.create({
       name: 'Rosario',
       id: 2,
-      limite: 70
+      limite: 70,
+      direccion: 'Junín 501, S2000 Rosario, Santa Fe'
+
     });
     const WH03 = Deposito.create({
       name: 'Córdoba',
       id: 3,
-      limite:150
+      limite:150,
+      direccion: 'Av. Vélez Sarsfield 361, X5000JJD Córdoba'
+
     });
     const WH04 = Deposito.create({
       name: 'Trelew',
       id: 4,
-      limite:140
+      limite:140,
+      direccion: 'Rivadavia 390, Trelew, Chubut'
+
     });
     const WH05 = Deposito.create({
       name: 'Mendoza',
       id: 5,
-      limite: 150
+      limite: 150,
+      direccion: 'Gral. Espejo 300, M5502 AVJ, Mendoza'
+
     });
     const WH06 = Deposito.create({
       name: 'La Plata',
       id: 6,
-      limite: 100
+      limite: 100,
+      direccion: 'Paseo del Bosque s/n, B1900 La Plata, Provincia de Buenos Aires'
+
     });
     const WH07 = Deposito.create({
       name: 'San Miguel de Tucumán',
       id: 7,
-      limite:120
+      limite:120,
+      direccion: 'IEC, Congreso de Tucumán 141, T4000 San Miguel de Tucumán, Tucumán'
     });
     const WH08 = Deposito.create({
       name: 'Mar del Plata',
       id: 8,
-      limite:180
+      limite:180,
+      direccion: 'Mar del Plata, Provincia de Buenos Aires'
     });
     const WH09 = Deposito.create({
       name: 'Salta',
       id: 9,
-      limite:140
+      limite:140,
+      direccion: 'Caseros 500, Salta'
     });
     const WH10 = Deposito.create({
       name: 'Santa Fe',
       id: 10,
-      limite: 70
+      limite: 70,
+      direccion: 'Col. Cavour, Santa Fe'
     });
     Promise.all([WH01, WH02, WH03, WH04,
       WH05, WH06, WH07, WH08, WH09, WH10])

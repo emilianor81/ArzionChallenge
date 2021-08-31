@@ -15,6 +15,10 @@ module.exports = (sequelize) => {
   },
   limite: {
     type: DataTypes.INTEGER,
+  }, 
+  direccion: {
+    type: DataTypes.STRING,
   }
+
 });
 }
