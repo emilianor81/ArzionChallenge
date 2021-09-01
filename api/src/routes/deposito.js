@@ -27,22 +27,42 @@ var distance = {
     "status" : "OK"
  }
 
-const addShipping = router.get('/', async (req, res)=>{
+const addShipping = router.post('/', async (req, res)=>{
    const {destino}=req.body
+   let ArrayDistancias = [];
     try{
         const depositos = await Deposito.findAll();
         for(i = 0; i < depositos.length ; i++){
-            console.log(depositos[i].dataValues)
-        }
-        let origen = depositos[0].direccion;
-        let destino = depositos[1].direccion;
-        // console.log(API_KEY)
-        // const distancia = await axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&destinations=${destino}&origins=${origen}`);
-        console.log(distance.status)
-        res.json(distance)
-        // console.log(distancia, 'distancia entre origen y primer deposito')
-           // https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&destinations=${destino}&origins=37.50630334%2C15.11786942
-        // console.log(distancia.data)
+            let direccion = depositos[i].dataValues.direccion
+            let nombre = depositos[i].dataValues.name
+            let limite = depositos[i].dataValues.limite
+            let id = depositos[i].dataValues.id
+            const NuevaDistancia = {nombre, limite, direccion };
+            //hacer un string concat con todas las direcciones de depositos y | para hacer una sola llamada a la api
+            //calculo la distancia entre el destino del paquete y cada uno de los depositos y lo guardo en un array para poder tener los datos que necesito
+            const distanciaADeposito = await axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?key=${API_KEY}&destinations=${destino}&origins=${direccion}`);
+         const NuevaDistancia = {nombre, limite, direccion , distanciaADeposito};
+         ArrayDistancias.push(NuevaDistancia)
+          }
+        ArrayDistancias.sort((a, b) => {return a.distanciaADeposito - b.distanciaADeposito}); // --> 3, 12, 23
+        //UNA VEZ QUE TENGO TODO ORDENADO POR DISTANCIA, RECORRO Y PREGUNTO SI TIENE MENOS DEL 95% OCUPACION
+
+        ArrayDistancias.forEach(e=> {
+            if(e.stock < e.limite* 0.95){
+                const deposito = await Deposito.findByPk(e.id)
+                await deposito.update({
+                    stock: stock - 1
+                })
+                return deposito
+            }else{
+
+            }
+        })
+
+        
+        // ArrayDistancias.sort((a, b) => {return b.limite - a.limite}); // --> 3, 12, 23
+        console.log(ArrayDistancias)
+        res.json(distance.rows[0].elements[0].distance.text)
         //una vez que tenga la distancia del destino a cada deposito, comprobar que el deposito no haya llegado al limite. de 95%,
         // si el deposito llego al limite de 95% hay que hacer el calculo de que conviene, haciendo la multiplicacion por cada km extra o la multa
 

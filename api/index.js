@@ -9,12 +9,14 @@ conn.sync({ force: true }).then(() => {
       name: 'Buenos Aires',
       id: 1,
       limite:200,
+      stock: 0,
       direccion: 'C1063 CABA'
     });
     const WH02 = Deposito.create({
       name: 'Rosario',
       id: 2,
       limite: 70,
+      stock: 0,
       direccion: 'Junín 501, S2000 Rosario, Santa Fe'
 
     });
@@ -22,6 +24,7 @@ conn.sync({ force: true }).then(() => {
       name: 'Córdoba',
       id: 3,
       limite:150,
+      stock: 0,
       direccion: 'Av. Vélez Sarsfield 361, X5000JJD Córdoba'
 
     });
@@ -29,6 +32,8 @@ conn.sync({ force: true }).then(() => {
       name: 'Trelew',
       id: 4,
       limite:140,
+      stock: 0,
+
       direccion: 'Rivadavia 390, Trelew, Chubut'
 
     });
@@ -36,6 +41,7 @@ conn.sync({ force: true }).then(() => {
       name: 'Mendoza',
       id: 5,
       limite: 150,
+      stock: 0,
       direccion: 'Gral. Espejo 300, M5502 AVJ, Mendoza'
 
     });
@@ -43,6 +49,7 @@ conn.sync({ force: true }).then(() => {
       name: 'La Plata',
       id: 6,
       limite: 100,
+      stock: 0,
       direccion: 'Paseo del Bosque s/n, B1900 La Plata, Provincia de Buenos Aires'
 
     });
@@ -50,24 +57,31 @@ conn.sync({ force: true }).then(() => {
       name: 'San Miguel de Tucumán',
       id: 7,
       limite:120,
+      stock: 0,
+
       direccion: 'IEC, Congreso de Tucumán 141, T4000 San Miguel de Tucumán, Tucumán'
     });
     const WH08 = Deposito.create({
       name: 'Mar del Plata',
       id: 8,
       limite:180,
+      stock: 0,
       direccion: 'Mar del Plata, Provincia de Buenos Aires'
     });
     const WH09 = Deposito.create({
       name: 'Salta',
       id: 9,
       limite:140,
+      stock: 0,
+
       direccion: 'Caseros 500, Salta'
     });
     const WH10 = Deposito.create({
       name: 'Santa Fe',
       id: 10,
       limite: 70,
+      stock: 0,
+
       direccion: 'Col. Cavour, Santa Fe'
     });
     Promise.all([WH01, WH02, WH03, WH04,

@@ -16,6 +16,9 @@ module.exports = (sequelize) => {
   limite: {
     type: DataTypes.INTEGER,
   }, 
+  stock: {
+    type: DataTypes.INTEGER,
+  },
   direccion: {
     type: DataTypes.STRING,
   }
