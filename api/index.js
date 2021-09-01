@@ -17,7 +17,7 @@ conn.sync({ force: true }).then(() => {
       id: 2,
       limite: 70,
       stock: 0,
-      direccion: 'Junín 501, S2000 Rosario, Santa Fe'
+      direccion: 'S2000 Rosario, Santa Fe'
 
     });
     const WH03 = Deposito.create({
@@ -25,7 +25,7 @@ conn.sync({ force: true }).then(() => {
       id: 3,
       limite:150,
       stock: 0,
-      direccion: 'Av. Vélez Sarsfield 361, X5000JJD Córdoba'
+      direccion: 'X5000JJD Cordoba, Argentina'
 
     });
     const WH04 = Deposito.create({
@@ -50,7 +50,7 @@ conn.sync({ force: true }).then(() => {
       id: 6,
       limite: 100,
       stock: 0,
-      direccion: 'Paseo del Bosque s/n, B1900 La Plata, Provincia de Buenos Aires'
+      direccion: 'B1900 La Plata, Provincia de Buenos Aires'
 
     });
     const WH07 = Deposito.create({
@@ -59,7 +59,7 @@ conn.sync({ force: true }).then(() => {
       limite:120,
       stock: 0,
 
-      direccion: 'IEC, Congreso de Tucumán 141, T4000 San Miguel de Tucumán, Tucumán'
+      direccion: 'T4000 San Miguel de Tucuman, Tucuman'
     });
     const WH08 = Deposito.create({
       name: 'Mar del Plata',
@@ -82,7 +82,7 @@ conn.sync({ force: true }).then(() => {
       limite: 70,
       stock: 0,
 
-      direccion: 'Col. Cavour, Santa Fe'
+      direccion: 'provincia de santa fe, Argentina'
     });
     Promise.all([WH01, WH02, WH03, WH04,
       WH05, WH06, WH07, WH08, WH09, WH10])
